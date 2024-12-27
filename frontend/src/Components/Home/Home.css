@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+#home{
+    background-image: url(../../assets/home.jfif);
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    text-align: center;
+    padding: 200px;
+}
+.section_p1{
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+.section_head{
+    color: #104c70;
+    text-align: center;
+    margin-bottom: 40px;
+}
+#home h1{
+    color: #fff;
+}
+#home h3{
+    color:#c2c2c2
+}
+#home button{
+    background-color: #c2c2c2;
+    color:#104c70;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: 500;
+}

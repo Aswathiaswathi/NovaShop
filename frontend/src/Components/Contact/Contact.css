@@ -1,0 +1,11 @@
+.contact{
+    background-color: #c2c2c2;
+}
+.sendbtn{
+    background-color: #104c70;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 5px;
+}
