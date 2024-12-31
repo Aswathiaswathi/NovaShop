@@ -8,8 +8,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import Footer from "../Footer/Footer";
-
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Product() {
     const [goodsInItems, setGoodsInItems] = useState([]);
@@ -17,6 +17,7 @@ function Product() {
     const [error, setError] = useState(null);
     const [goodsInData, setGoodsInData] = useState([]);
     const [showEditModal,setShowEditModal]=useState(false);
+    const navigate=useNavigate;
     const [editFormData,setEditFormData]=useState({
       id:"",item:"",quantity:"",expiry_date:"",entry_number:"",date_added:"",
     });
@@ -96,14 +97,15 @@ const handleEditSubmit=async(e)=>{
           <Col lg={3} md={4} sm={6}>
           <Card style={{ width: '17rem',border:'1px solid #104c70' }} key={item.id} className="mb-3">
           <Card.Body>
-            <Card.Title>{item.item_name}</Card.Title>
+            <Card.Title className="cardTitle">{item.item_name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">Quantity : {item.quantity}</Card.Subtitle>
             <Card.Text> Expiry Date : {item.expiry_date} </Card.Text>
             <Card.Text> Entry Number : {item.entry_number} </Card.Text>
             <Card.Text>Date Added :{new Date(item.date_added).toISOString().split('T')[0]}  </Card.Text>
 
             <Card.Link href="#"><Button className="editbtn" onClick={() => handleEditClick(item)}>Edit</Button></Card.Link>
-            <Card.Link href="#"><Button variant="danger" onClick={()=>handleDelete(item.id)}>Delete</Button></Card.Link>
+            <Card.Link href="#" style={{textDecoration:'none'}}><Link to="/goodsout" className='goodsoutbtn'>Goods Out</Link>  
+            </Card.Link>
           </Card.Body>
         </Card>
         </Col>
@@ -176,7 +178,6 @@ const handleEditSubmit=async(e)=>{
             </Modal>
 
     </Container>
-    <Footer/>
 
     </div>
   )

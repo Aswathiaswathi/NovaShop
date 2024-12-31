@@ -2,7 +2,6 @@ import Form from 'react-bootstrap/Form';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Container from 'react-bootstrap/Container';
-import Footer from '../Footer/Footer';
 import './NewProduct.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,6 +9,7 @@ function NewProduct() {
   const [formData, setFormData] = useState({
     item: "",        // ID of the selected item
     quantity: "",
+    original_quantity:"",
     expiry_date: "",
     entry_number: "",
     date_added: "",
@@ -40,8 +40,12 @@ function NewProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const payload = {
+        ...formData,
+        original_quantity: formData.quantity, // Match original_quantity with quantity
+      };
       // POST request to create a new GoodsIn entry
-      const response = await axios.post("http://localhost:8000/api/goodsin/", formData);
+      const response = await axios.post("http://localhost:8000/api/goodsin/", payload);
       console.log("Item added:", response.data);
       alert("Item added successfully!");
       navigate('/product')
@@ -79,7 +83,7 @@ function NewProduct() {
 
         <Form.Group className="mb-3" controlId="formGroupExpiryDate">
           <Form.Label>Expiry Date</Form.Label>
-          <Form.Control type="date" value={formData.expiry_date} name="expiry_date" onChange={handleChange} required />
+          <Form.Control type="date" className='dateInput' value={formData.expiry_date} name="expiry_date" onChange={handleChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formGroupEntryNumber">
@@ -95,7 +99,6 @@ function NewProduct() {
         <button type="submit" className='sendbtn'>Add Item</button>
       </Form>
     </Container>
-    <Footer/>
     </div>
   );
 }

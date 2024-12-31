@@ -3,3 +3,15 @@
     color: #fff;
     padding: 7px 20px;
 }
+.cardTitle{
+    color: #104c70;
+}
+.goodsoutbtn{
+    background-color: #8fb4c1;
+    color:#fff;
+    padding: 9px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+
+}

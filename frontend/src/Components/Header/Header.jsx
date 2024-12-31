@@ -30,6 +30,15 @@ function Header() {
            <Link to="/newproduct" className='navitem'>Add Product</Link>  
          </Nav.Link>
          <Nav.Link href="#home">
+           <Link to="/itemmaster" className='navitem'>Item Master</Link>  
+         </Nav.Link>
+         <Nav.Link href="#home">
+           <Link to="/stockreport" className='navitem'>Stock Report</Link>  
+         </Nav.Link>
+         <Nav.Link href="#home">
+           <Link to="/goodsout" className='navitem'>Goods Out</Link>  
+         </Nav.Link>
+         <Nav.Link href="#home">
            <Link to="/contact" className='navitem'>Contact</Link>  
          </Nav.Link>
        </Nav>
